@@ -38,8 +38,8 @@ To run this template locally, follow these steps:
 
 1. **Clone the Repository**
    ```bash
-   git clone <repository_url>
-   cd flask_template
+   git clone https://github.com/yashksaini-coder/Flask-Project-Template
+   cd Flask-Project-Template
    ```
 
 2. **Create and Activate a Virtual Environment**
