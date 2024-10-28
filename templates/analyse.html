@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Sentiment Analysis</h1>
+
+<form id="analyseForm">
+    <textarea name="text" id="text" rows="4" cols="50" placeholder="Enter text..."></textarea><br>
+    <button type="submit">Analyze</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    document.getElementById('analyseForm').onsubmit = function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        fetch('/analyse', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').innerHTML = 'Sentiment: ' + data.sentiment;
+        })
+        .catch(error => {
+            document.getElementById('result').innerHTML = 'Error occurred';
+        });
+    };
+</script>
+{% endblock %}

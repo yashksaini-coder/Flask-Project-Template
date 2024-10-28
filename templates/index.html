@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header>
+        <h1>Welcome to News Sentiment Analyser</h1>
+        <p>A powerful tool to analyze the sentiment of news articles using the Groq API and advanced machine learning techniques.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>News Sentiment Analysis:</strong> Evaluate the sentiment (positive, neutral, or negative) of any news article or text.</li>
+                <li><strong>Real-time Insights:</strong> Leverages the powerful Groq API to provide quick, accurate analysis of news and content sentiment.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <p>Simply paste any news article or text, and the <strong>News Sentiment Analyser</strong> will evaluate its sentiment using the <strong>Groq API</strong>. Get instant insights into how the news may be perceived by audiences, helping you stay informed and make data-driven decisions.</p>
+        </section>
+
+        <section>
+            {% if not current_user.is_authenticated %}
+                <button disabled>Analyse Page (Login Required)</button>
+                <p><a href="/login">Login</a> to enable the button.</p>
+            {% else %}
+                <a href="/analyse"><button>Analyse your text</button></a>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 News Sentiment Analyser. Powered by Groq API. All rights reserved.</p>
+    </footer>
+{% endblock %}
